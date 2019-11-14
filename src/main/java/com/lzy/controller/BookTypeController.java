@@ -22,7 +22,7 @@ public class BookTypeController {
     private BookTypeService bookTypeService;
 
     @ResponseBody
-    @GetMapping("/getAllBookType")
+    @RequestMapping("/getAllBookType")
     public List<Booktype> getAllBookType(){
        return bookTypeService.getAllBookType();
     }

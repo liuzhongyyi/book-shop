@@ -30,7 +30,7 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav" id="bookType">
-                      <li><a href='/getBookByType?bookTypeId=0'>全部</a></li>"
+
 						<%--<li><a href="bookList.jsp">java语言</a></li>--%>
 						<%--<li><a href="bookList.jsp">C语言</a></li>--%>
 						<%--<li><a href="bookList.jsp">C#语言</a></li>--%>
@@ -39,20 +39,20 @@
 
 
 					<ul class="nav navbar-nav navbar-right">
-                        <c:if test="${username!=null}">
-                        <li>欢迎${username}</li>
-                        </c:if>
+
                         <c:if test="${username==null}">
 						<li ><a href="/getLogin">登陆</a></li>
 						<li><a href="/getReg">注册</a></li>
                         </c:if>
 					</ul>
-					<!--
+
 					<ul class="nav navbar-nav navbar-right">
-						<li><a>欢迎：XXX</a></li>
-						<li><a href="#">我的购物车</a></li>
+                        <c:if test="${username!=null}">
+                            <li>欢迎${username}</li>
+                        </c:if>
+						<li><a href="/getShopCart">我的购物车</a></li>
 					</ul>
-					-->
+
 				</div>
 			</div>
 		</nav>
@@ -61,37 +61,37 @@
 			<div class="row">
   				<%--<div class="col-xs-3">--%>
     				<%--<div class="thumbnail">--%>
-      					<%--<a href="../../book.html"><img src="../../img/c01.jpg" alt="..." style="width:200px;height:260px"></a>--%>
+      					<%--<a href="../../book.jsp"><img src="../../img/c01.jpg" alt="..." style="width:200px;height:260px"></a>--%>
       					<%--<div class="caption">--%>
-        					<%--<h4><a href="../../book.html">C程序设计</a></h4>--%>
-        					<%--<p><a href="../../cart.html">放入购物车</a></p>--%>
+        					<%--<h4><a href="../../book.jsp">C程序设计</a></h4>--%>
+        					<%--<p><a href="../../cart.jsp">放入购物车</a></p>--%>
       					<%--</div>--%>
     				<%--</div>--%>
   				<%--</div>--%>
   				<%--<div class="col-xs-3">--%>
     				<%--<div class="thumbnail">--%>
-      					<%--<a href="../../book.html"><img src="../../img/java01.jpg" alt="..." style="width:200px;height:260px"></a>--%>
+      					<%--<a href="../../book.jsp"><img src="../../img/java01.jpg" alt="..." style="width:200px;height:260px"></a>--%>
       					<%--<div class="caption">--%>
-        					<%--<h4><a href="../../book.html">java编程基础</a></h4>--%>
-        					<%--<p><a href="../../cart.html">放入购物车</a></p>--%>
+        					<%--<h4><a href="../../book.jsp">java编程基础</a></h4>--%>
+        					<%--<p><a href="../../cart.jsp">放入购物车</a></p>--%>
       					<%--</div>--%>
     				<%--</div>--%>
   				<%--</div>--%>
   				<%--<div class="col-xs-3">--%>
     				<%--<div class="thumbnail">--%>
-      					<%--<a href="../../book.html"><img src="../../img/java04.jpg" alt="..." style="width:200px;height:260px"></a>--%>
+      					<%--<a href="../../book.jsp"><img src="../../img/java04.jpg" alt="..." style="width:200px;height:260px"></a>--%>
       					<%--<div class="caption">--%>
-        					<%--<h4><a href="../../book.html">javaWeb开发技术详解</a></h4>--%>
-        					<%--<p><a href="../../cart.html">放入购物车</a></p>--%>
+        					<%--<h4><a href="../../book.jsp">javaWeb开发技术详解</a></h4>--%>
+        					<%--<p><a href="../../cart.jsp">放入购物车</a></p>--%>
       					<%--</div>--%>
     				<%--</div>--%>
   				<%--</div>--%>
   				<%--<div class="col-xs-3">--%>
     				<%--<div class="thumbnail">--%>
-      					<%--<a href="../../book.html"><img src="../../img/c02.jpg" alt="..." style="width:200px;height:260px"></a>--%>
+      					<%--<a href="../../book.jsp"><img src="../../img/c02.jpg" alt="..." style="width:200px;height:260px"></a>--%>
       					<%--<div class="caption">--%>
-        					<%--<h4><a href="../../book.html">C语言基础教程</a></h4>--%>
-        					<%--<p><a href="../../cart.html">放入购物车</a></p>--%>
+        					<%--<h4><a href="../../book.jsp">C语言基础教程</a></h4>--%>
+        					<%--<p><a href="../../cart.jsp">放入购物车</a></p>--%>
       					<%--</div>--%>
     				<%--</div>--%>
   				<%--</div>--%>
@@ -119,7 +119,7 @@
                         var div = "";
 
                         $.each(d,function(i,v){
-                            div += "<div class='col-xs-3'><div class='thumbnail'><a href='book.jsp?bookid="+v.bookId+"'><img src='img/"+v.bookPicture+"' style='width:200px;height:260px'></a><div class='caption'><h4><a href='book.jsp?bookid="+v.bookId+"'>"+v.bookName+"</a></h4><p><a href='cart.jsp?bookid="+v.bookId+"'>放入购物车</a></p></div></div></div>";
+                            div += "<div class='col-xs-3'><div class='thumbnail'><a href='book.jsp?bookid="+v.bookId+"'><img src='img/"+v.bookPicture+"' style='width:200px;height:260px'></a><div class='caption'><h4><a href='book.jsp?bookid="+v.bookId+"'>"+v.bookName+"</a></h4><p><a href="+v.bookId+"'WEB-INF/jsp/cart.jsp?bookid='>放入购物车</a></p></div></div></div>";
                         });
 
                         $(".row").html(div);
@@ -130,9 +130,11 @@
                     success:function (d) {
                         var li ="";
                         $.each(d,function (i,v) {
-                            li+="<li><a href='/getBookByType?bookTypeId="+v.bookTypeId+"'>"+v.bookTypeName+"</a></li>"
+
+                            li+="<li><a href='/getBookByType?bookTypeId=0'>全部</a></li>"+"<li><a href='/getBookByType?bookTypeId="+v.bookTypeId+"'>"+v.bookTypeName+"</a></li>"
                         });
-                        $("#bookType").append(li)
+                        $("#bookType").html(li)
+
 
                     }
                 })

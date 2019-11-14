@@ -1,6 +1,15 @@
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import com.lzy.dao.BookDao;
+import com.lzy.dao.Userdao;
+import com.lzy.domain.Book;
+import com.lzy.domain.Users;
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.sql.DataSource;
 import java.io.FileInputStream;
@@ -9,7 +18,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "/spring/applicationContext.xml")
 public class testdb {
+    @Autowired
+    private BookDao bookDao;
+
+    @Autowired
+    private Userdao userdao;
 
     @Test
     public void test(){
@@ -47,7 +63,31 @@ public class testdb {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void test1(){
+        Users users = new Users();
+        users.setUsername("lzy");
+        Users users1 = new Users();
+        users1.setUsername("lzy1");
+        Book book = new Book();
+        book.setBookName("hello");
+        Book book1 = new Book();
+        book1.setBookName("hello1");
+        users.getBooks().add(book);
+        users1.getBooks().add(book1);
+        book.getUsers().add(users);
+        book1.getUsers().add(users1);
+        bookDao.save(book);
+        bookDao.save(book1);
+        userdao.save(users);
+        userdao.save(users1);
+
+
+
     }
+
+}
 
 
 

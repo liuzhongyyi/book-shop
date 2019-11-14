@@ -9,6 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>好书吧</title>
 		<link href="../../framework/css/bootstrap.min.css" rel="stylesheet">
+		<script src="./../../js/jQuery-3.4.1.min.js"></script>
 	</head>
 
 	<body>
@@ -29,23 +30,23 @@
 					<a class="navbar-brand" href="index.jsp">BOOK</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="#">全部</a></li>
-						<li><a href="#">java语言</a></li>
-						<li><a href="#">C语言</a></li>
-						<li><a href="#">C#语言</a></li>
+					<ul class="nav navbar-nav" id="bookType">
+
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+
+						<c:if test="${username==null}">
+							<li ><a href="/getLogin">登陆</a></li>
+							<li><a href="/getReg">注册</a></li>
+						</c:if>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/getLogin">登陆</a></li>
-						<li><a href="/getReg">注册</a></li>
+						<c:if test="${username!=null}">
+							<li>欢迎${username}</li>
+						</c:if>
+						<li><a href="/getShopCart">我的购物车</a></li>
 					</ul>
-					<!--
-					<ul class="nav navbar-nav navbar-right">
-						<li><a>欢迎：XXX</a></li>
-						<li><a href="#">我的购物车</a></li>
-					</ul>
-					-->
 				</div>
 			</div>
 		</nav>
@@ -71,8 +72,8 @@
                         <div class="thumbnail">
                             <a href="/getBookDetail?bookId=${book.bookId}"><img src="../../img/${book.bookPicture}" alt="..." style="width:200px;height:260px"></a>
                             <div class="caption">
-                                <h4><a href="../../book.html">${book.bookName}</a></h4>
-                                <p><a href="../../cart.html">放入购物车</a></p>
+                                <h4><a href="../../book.jsp">${book.bookName}</a></h4>
+                                <p><a href="/addToCart?bookId=${book.bookId}">放入购物车</a></p>
                             </div>
                         </div>
                     </div>
@@ -92,6 +93,21 @@
 
 		<script type="text/javascript" src="../../framework/js/jquery-1.11.3.js"></script>
 		<script type="text/javascript" src="../../framework/js/bootstrap.min.js"></script>
+		<script>
+		$.ajax({
+            url:"/getAllBookType",
+            success:function (d) {
+            var li ="";
+            $.each(d,function (i,v) {
+            li+="<li><a href='/getBookByType?bookTypeId="+v.bookTypeId+"'>"+v.bookTypeName+"</a></li>"+"<li><a href='/getBookByType?bookTypeId=0'>全部</a></li>"
+            });
+            $("#bookType").html(li)
+
+
+		}
+		})
+
+		</script>
 	</body>
 
 </html>

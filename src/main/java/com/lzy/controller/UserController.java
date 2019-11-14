@@ -26,6 +26,7 @@ public class UserController {
         {
             throw new LoginFail("账号或者密码错误");
         }else {
+            request.getSession().setAttribute("userId",user.getUserId());
             request.getSession().setAttribute("username",user.getUsername());
             return  "redirect:index.jsp";
         }

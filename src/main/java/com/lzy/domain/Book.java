@@ -2,6 +2,10 @@ package com.lzy.domain;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "book")
@@ -18,7 +22,16 @@ public class Book {
   private String bookPicture;
   private Integer bookTypeId;
   private String createTime;
+  @ManyToMany(mappedBy = "books")
+  private List<Users> users = new ArrayList<>(0);
 
+  public List<Users> getUsers() {
+    return users;
+  }
+
+  public void setUsers(List<Users> users) {
+    this.users = users;
+  }
 
   public Integer getBookId() {
     return bookId;

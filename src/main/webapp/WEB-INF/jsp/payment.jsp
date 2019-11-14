@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>好书吧</title>
-		<link href="framework/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../framework/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -28,13 +30,13 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="WEB-INF/jsp/bookList.jsp">全部</a></li>
-						<li><a href="WEB-INF/jsp/bookList.jsp">java语言</a></li>
-						<li><a href="WEB-INF/jsp/bookList.jsp">C语言</a></li>
-						<li><a href="WEB-INF/jsp/bookList.jsp">C#语言</a></li>
+						<li><a href="bookList.jsp">全部</a></li>
+						<li><a href="bookList.jsp">java语言</a></li>
+						<li><a href="bookList.jsp">C语言</a></li>
+						<li><a href="bookList.jsp">C#语言</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="WEB-INF/jsp/login.jsp">登陆</a></li>
+						<li><a href="login.jsp">登陆</a></li>
 						<li><a href="reg.html">注册</a></li>
 					</ul>
 					<!--
@@ -47,32 +49,16 @@
 			</div>
 		</nav>
 		
-		<div class="container"  style="margin-top: 70px;margin-bottom: 50px;"> 
-			<div class="row">
-				<div class="col-xs-4">
-					<img src="img/c01.jpg" width="300" height="400"> 
-				</div>
-				<div class="col-xs-6">
-					<ul class="list-group">
-						<li class="list-group-item">书籍编号：1</li>
-  						<li class="list-group-item">书籍名称：C程序设计</li>
-  						<li class="list-group-item">作者：黄药师</li>
-  						<li class="list-group-item">分类：C语言</li>
-  						<li class="list-group-item">价格：55</li>
-					</ul>
-					<div class="panel panel-default">
-  						<div class="panel-heading">
-    						<h3 class="panel-title">内容简介</h3>
-  						</div>
-  						<div class="panel-body">
-    						C程序设计真是一本好书啊！好书啊！好书。好书啊！好书。好书啊！好书。好书啊！好书。好书啊！好书。好书啊！好书。好书啊！好书。
-  						</div>
-					</div>
-					<a class="btn btn-primary" href="cart.html" role="button">放入购物车</a>
-				</div>
-			</div>
+		<!-- 这里到订单系统，生成订单，生成订单明细，如果付款成功，还要删除购物车中的商品等等 -->
+		<div class="container" style="margin-top: 70px;margin-bottom: 50px;width: 50%;">
+			<ul class="list-group">
+				<li class="list-group-item">订单编号：XXX</li>
+  				<li class="list-group-item">用户名称：XXX</li>
+  				<li class="list-group-item">订单总金额：XXX</li>
+  				<li class="list-group-item">订单日期：XXX</li>
+  				<li class="list-group-item"><a class="btn btn-danger" href="payment_success.html" role="button">付款</a></li>
+			</ul>
 		</div>
-		
 		
 		<div class="jumbotron">
 			<div class="container">
@@ -83,8 +69,8 @@
   			</div>
 		</div>
 
-		<script type="text/javascript" src="framework/js/jquery-1.11.3.js"></script>
-		<script type="text/javascript" src="framework/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../framework/js/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="../../framework/js/bootstrap.min.js"></script>
 	</body>
 
 </html>

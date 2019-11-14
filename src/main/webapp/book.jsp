@@ -47,61 +47,32 @@
 			</div>
 		</nav>
 		
-		<div class="container" style="margin-top: 70px;margin-bottom: 50px;">
-			<table class="table table-striped" >
-  				<tr>
-  					<th>书籍编号</th>
-  					<th>书籍名称</th>
-  					<th>书籍单价</th>
-  					<th>购买数量</th>
-  					<th>金额小计</th>
-  					<th></th>
-  				</tr>
-  				<tr>
-  					<td>1</td>
-  					<td>C程序设计</td>
-  					<td>55</td>
-  					<td>
-  						<a class="btn btn-xs btn-info" href="#">-</a>
-  						<input type="text" size="2" value="10">
-  						<a class="btn btn-xs btn-info" href="#">+</a>
-  					</td>
-  					<td>550</td>
-  					<td><a href="">删除</a></td>
-  				</tr>
-  				<tr>
-  					<td>1</td>
-  					<td>C程序设计</td>
-  					<td>55</td>
-  					<td>
-  						<a class="btn btn-xs btn-info" href="#">-</a>
-  						<input type="text" size="2" value="10">
-  						<a class="btn btn-xs btn-info" href="#">+</a>
-  					</td>
-  					<td>550</td>
-  					<td><a href="">删除</a></td>
-  				</tr>
-  				<tr>
-  					<td>1</td>
-  					<td>C程序设计</td>
-  					<td>55</td>
-  					<td>
-  						<a class="btn btn-xs btn-info" href="#">-</a>
-  						<input type="text" size="2" value="10">
-  						<a class="btn btn-xs btn-info" href="#">+</a>
-  					</td>
-  					<td>550</td>
-  					<td><a href="">删除</a></td>
-  				</tr>
-  				<tr>
-  					<td colspan="3">总计：1500</td>
-  					<td colspan="3">
-  						<a class="btn btn-danger" href="payment.html" role="button">确认购买</a>
-  						<a class="btn btn-primary" href="WEB-INF/jsp/bookList.jsp" role="button">返回购物</a>
-  					</td>
-  				</tr>
-			</table>
+		<div class="container"  style="margin-top: 70px;margin-bottom: 50px;"> 
+			<div class="row">
+				<div class="col-xs-4">
+					<img src="img/c01.jpg" width="300" height="400"> 
+				</div>
+				<div class="col-xs-6">
+					<ul class="list-group">
+						<li class="list-group-item">书籍编号：1</li>
+  						<li class="list-group-item">书籍名称：C程序设计</li>
+  						<li class="list-group-item">作者：黄药师</li>
+  						<li class="list-group-item">分类：C语言</li>
+  						<li class="list-group-item">价格：55</li>
+					</ul>
+					<div class="panel panel-default">
+  						<div class="panel-heading">
+    						<h3 class="panel-title">内容简介</h3>
+  						</div>
+  						<div class="panel-body">
+    						C程序设计真是一本好书啊！好书啊！好书。好书啊！好书。好书啊！好书。好书啊！好书。好书啊！好书。好书啊！好书。好书啊！好书。
+  						</div>
+					</div>
+					<a class="btn btn-primary" href="WEB-INF/jsp/cart.jsp" role="button">放入购物车</a>
+				</div>
+			</div>
 		</div>
+		
 		
 		<div class="jumbotron">
 			<div class="container">
