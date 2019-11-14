@@ -1,3 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 demo.iml
 target
+.idea/vcs.xml
+Would skip repository book-shop/
+src/main/java/com/lzy/config/
+src/main/webapp/css/
+.idea
