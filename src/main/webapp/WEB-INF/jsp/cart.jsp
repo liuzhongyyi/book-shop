@@ -59,46 +59,25 @@
   					<th>金额小计</th>
   					<th></th>
   				</tr>
+                <c:forEach items="${cart}" var="item">
+                    <tr>
+                        <td id="bookId">${item.book.bookId}</td>
+                        <td>${item.book.bookName}</td>
+                        <td id="price">${item.book.bookPrice}</td>
+                        <td>
+                            <li class="btn btn-xs btn-info"  id="decrease">-</li>
+                            <input type="text"   id="num" value="${item.bookQuantity}" readonly>
+                            <li class="btn btn-xs btn-info"  id="adds">+</li>
+                        </td>
+                        <td id="smallPrice"></td>
+                        <td><a href="">删除</a></td>
+                    </tr>
+                </c:forEach>
+
   				<tr>
-  					<td>1</td>
-  					<td>C程序设计</td>
-  					<td>55</td>
-  					<td>
-  						<a class="btn btn-xs btn-info" href="#">-</a>
-  						<input type="text" size="2" value="10">
-  						<a class="btn btn-xs btn-info" href="#">+</a>
-  					</td>
-  					<td>550</td>
-  					<td><a href="">删除</a></td>
-  				</tr>
-  				<tr>
-  					<td>1</td>
-  					<td>C程序设计</td>
-  					<td>55</td>
-  					<td>
-  						<a class="btn btn-xs btn-info" href="#">-</a>
-  						<input type="text" size="2" value="10">
-  						<a class="btn btn-xs btn-info" href="#">+</a>
-  					</td>
-  					<td>550</td>
-  					<td><a href="">删除</a></td>
-  				</tr>
-  				<tr>
-  					<td>1</td>
-  					<td>C程序设计</td>
-  					<td>55</td>
-  					<td>
-  						<a class="btn btn-xs btn-info" href="#">-</a>
-  						<input type="text" size="2" value="10">
-  						<a class="btn btn-xs btn-info" href="#">+</a>
-  					</td>
-  					<td>550</td>
-  					<td><a href="">删除</a></td>
-  				</tr>
-  				<tr>
-  					<td colspan="3">总计：1500</td>
+  					<td  id="allPrice" colspan="3">总计：1500</td>
   					<td colspan="3">
-  						<a class="btn btn-danger" href="payment.jsp" role="button">确认购买</a>
+  						<a class="btn btn-danger" href="/goTopayment" role="button">确认购买</a>
   						<a class="btn btn-primary" href="bookList.jsp" role="button">返回购物</a>
   					</td>
   				</tr>
@@ -116,6 +95,52 @@
 
 		<script type="text/javascript" src="../../framework/js/jquery-1.11.3.js"></script>
 		<script type="text/javascript" src="../../framework/js/bootstrap.min.js"></script>
+		<script src="./../../js/jQuery-3.4.1.min.js"></script>
+		<script>
+
+                        $("#decrease").click(function () {
+                        var n = $("#num").val();
+                        var value= parseInt(n);
+                        var bookId =$("#bookId").text()
+                        if(value>1) {
+                            value--;
+                            $("#num").val(value);
+                            $.ajax({
+                                url:"/addNum?num="+value+"&bookId="+bookId+"",
+                                success:function (data) {
+                                   $("#smallPrice").text(data.samllPrice)
+                                    $("#smallPrice").text(data.allPrice)
+                                }
+                            })
+                        }
+
+                    })
+                    //获取当前件的正在操作的数的数量
+
+
+                    $("#adds").click(function () {
+                        var n = $("#num").val();
+                        var value= parseInt(n);
+                        value++;
+                        var bookId =$("#bookId").text()
+                        $("#num").val(value);
+                        $.ajax({
+                            url:"/addNum?num="+value+"&bookId="+bookId+"",
+                            success:function (data) {
+                                $("#smallPrice").text(data.smallPrice)
+                                $("#allPrice").text(data.allPrice)
+                            }
+                        })
+
+
+
+
+
+
+
+            })
+
+		</script>
 	</body>
 
 </html>

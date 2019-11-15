@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface BookDao extends JpaRepository<Book,Long>, JpaSpecificationExecutor<Book> {
     List<Book> findAllByBookTypeId(Integer id);
-    //多表查询使用视图
+    Book findBookByBookId(Integer id);
 
 
 }

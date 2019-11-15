@@ -97,9 +97,9 @@
 		$.ajax({
             url:"/getAllBookType",
             success:function (d) {
-            var li ="";
+            var li ="<li><a href='/getBookByType?bookTypeId=0'>全部</a></li>";
             $.each(d,function (i,v) {
-            li+="<li><a href='/getBookByType?bookTypeId="+v.bookTypeId+"'>"+v.bookTypeName+"</a></li>"+"<li><a href='/getBookByType?bookTypeId=0'>全部</a></li>"
+            li+="<li><a href='/getBookByType?bookTypeId="+v.bookTypeId+"'>"+v.bookTypeName+"</a></li>"
             });
             $("#bookType").html(li)
 

@@ -1,6 +1,9 @@
 package com.lzy.domain;
 
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.naming.Name;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,24 +20,23 @@ public class Users {
   private Integer userId;
   private String username;
   private String password;
-  @ManyToMany
-  @JoinTable(name = "cart",joinColumns = {@JoinColumn(name = "userId",referencedColumnName ="userId")},
-          inverseJoinColumns = {@JoinColumn(name="bookId",referencedColumnName = "bookId")})
-  private List<Book> books = new ArrayList<>(0);
 
-  public List<Book> getBooks() {
-    return books;
-  }
-
-  public void setBooks(List<Book> books) {
-    this.books = books;
-  }
-
+  @LazyCollection(LazyCollectionOption.FALSE)
+  @OneToMany(mappedBy = "user")
+  private  List<Cart> carts = new ArrayList<>(0);
   public Integer getUserId() {
     return userId;
   }
 
-  public void setUserId(Integer userId) {
+    public List<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
+    }
+
+    public void setUserId(Integer userId) {
     this.userId = userId;
   }
 
@@ -55,5 +57,6 @@ public class Users {
   public void setPassword(String password) {
     this.password = password;
   }
+
 
 }

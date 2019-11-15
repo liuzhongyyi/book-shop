@@ -15,7 +15,9 @@
 
 
     <!--配置一个数据源-->
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://47.101.143.152:3306/bookShop?useSSL=false"/>
         <property name="username" value="root"/>

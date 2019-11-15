@@ -1,6 +1,9 @@
 package com.lzy.domain;
 
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,16 +25,19 @@ public class Book {
   private String bookPicture;
   private Integer bookTypeId;
   private String createTime;
-  @ManyToMany(mappedBy = "books")
-  private List<Users> users = new ArrayList<>(0);
-
-  public List<Users> getUsers() {
-    return users;
-  }
-
-  public void setUsers(List<Users> users) {
-    this.users = users;
-  }
+  @LazyCollection(LazyCollectionOption.FALSE)
+  @OneToMany(mappedBy = "book")
+  private List<Cart> carts = new ArrayList<>(0);
+//  @ManyToMany(mappedBy = "books")
+//  private List<Users> users = new ArrayList<>(0);
+//
+//  public List<Users> getUsers() {
+//    return users;
+//  }
+//
+//  public void setUsers(List<Users> users) {
+//    this.users = users;
+//  }
 
   public Integer getBookId() {
     return bookId;
@@ -103,5 +109,6 @@ public class Book {
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
+
 
 }

@@ -52,10 +52,10 @@
 		<!-- 这里到订单系统，生成订单，生成订单明细，如果付款成功，还要删除购物车中的商品等等 -->
 		<div class="container" style="margin-top: 70px;margin-bottom: 50px;width: 50%;">
 			<ul class="list-group">
-				<li class="list-group-item">订单编号：XXX</li>
-  				<li class="list-group-item">用户名称：XXX</li>
-  				<li class="list-group-item">订单总金额：XXX</li>
-  				<li class="list-group-item">订单日期：XXX</li>
+				<li class="list-group-item">${orderInfo.orderId}</li>
+  				<li class="list-group-item">用户名称：${sessionScope.username}</li>
+  				<li class="list-group-item">订单总金额：${orderInfo.total}</li>
+  				<li class="list-group-item">订单日期：${orderInfo.createTime}</li>
   				<li class="list-group-item"><a class="btn btn-danger" href="payment_success.html" role="button">付款</a></li>
 			</ul>
 		</div>
